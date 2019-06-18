@@ -1,14 +1,18 @@
-
-var Imap = require('imap'),
+const Imap = require('imap'),
     inspect = require('util').inspect; 
 
+const nodemailer = require("nodemailer");
+
+/********************* Receive Mail *********************************/
+
 var imap = new Imap({
-  user: 'mail',
-  password: 'password', 
+  user: 'piedpiper-ucv@yopmail.com',
+  password: '1234567', 
   host: 'imap.gmail.com', 
   port: 993,
   tls: true
 });
+
 
 var lastMail = '';
 var ShowAll = true;
@@ -120,3 +124,31 @@ setInterval(function(){
   }
 
 }, 10000);
+
+/********************* Receive Mail *********************************/
+
+/********************* Send Mail *********************************/
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'yldemaro.1994@gmail.com',
+    pass: 'maroylde'
+  }
+});
+
+
+const mailOptions = {
+  from: 'sender@email.com',
+  to: 'piedpiper-ucv@yopmail.com',
+  subject: 'Subject of your email',
+  html: '<p>Your html here</p>'
+};
+
+transporter.sendMail(mailOptions, function (err, info) {
+  if(err)
+    console.log(err)
+  else
+    console.log(info);
+});
+
+/********************* Send Mail *********************************/
