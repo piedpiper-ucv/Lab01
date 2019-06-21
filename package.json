@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
     "imap": "^0.8.19",
     "nodemailer": "^6.2.1"
   }
